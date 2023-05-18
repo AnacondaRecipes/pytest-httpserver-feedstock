@@ -38,7 +38,7 @@ test:
     - mypy
     - toml
     - packaging
-    - exceptiongroup
+    - exceptiongroup # [py<311]
     - types-toml >=0.10.0,<0.11.0
   commands:
     - python -m pip check
