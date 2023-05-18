@@ -11,6 +11,7 @@ source:
 
 build:
   noarch: python
+  skip: true # [py<37]
   number: 0
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
@@ -18,11 +19,11 @@ requirements:
   host:
     - pip
     - poetry-core >=1.0.0
-    - python >=3.7
+    - python
     - wheel
   run:
     - py >=1.11.0
-    - python >=3.7
+    - python
     - werkzeug >=2.0.0
 
 test:
