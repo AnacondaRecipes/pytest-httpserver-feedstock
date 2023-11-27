@@ -1,5 +1,5 @@
 {% set name = "pytest-httpserver" %}
-{% set version = "1.0.6" %}
+{% set version = "1.0.8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name|replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 9040d07bf59ac45d8de3db1d4468fd2d1d607975e4da4c872ecc0402cdbf7b3e
+  sha256: e052f69bc8a9073db02484681e8e47004dd1fb3763b0ae833bd899e5895c559a
 
 build:
-  skip: true # [py<37]
+  skip: true # [py<38]
   number: 0
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
@@ -19,9 +19,7 @@ requirements:
     - pip
     - poetry-core >=1.0.0
     - python
-    - wheel
   run:
-    - py >=1.11.0
     - python
     - werkzeug >=2.0.0
 
@@ -36,7 +34,7 @@ test:
     - requests >=2.28.1
     - types-requests >=2.28.9
     - toml
-    - types-toml >=0.10.0,<0.11.0
+    - types-toml >=0.10.8,<0.11.0
   commands:
     - python -m pip check
     - python -m pytest -v -ra tests
