@@ -18,7 +18,7 @@ requirements:
   host:
     - pip
     - python
-    - poetry-core
+    - poetry-core >=1.0.0
   run:
     - python
     - werkzeug >=2.0.0
@@ -39,8 +39,7 @@ test:
     - types-requests
   commands:
     - pip check
-    # test_wait_raise_assertion_false: assert 0.25004416704177856 == 0.1 ± 0.1
-    - pytest tests --deselect=tests/test_wait.py::test_wait_raise_assertion_false
+    - pytest tests
 
 about:
   home: https://github.com/csernazs/pytest-httpserver
@@ -55,9 +54,6 @@ about:
     the real http server.  In other words, it is a fake http server which is
     accessible via localhost can be started with the pre-defined expected
     http requests and their responses.
-
-
-
 
 extra:
   recipe-maintainers:
